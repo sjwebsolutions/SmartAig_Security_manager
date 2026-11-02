@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:security_manager/view/screens/event_screen.dart';
 import 'package:security_manager/view/screens/gate_pass_screen.dart';
 import 'package:security_manager/view/screens/student_attendance_screen.dart';
 import 'package:security_manager/view/screens/visitor_screen.dart';
@@ -13,7 +14,7 @@ class SecurityModulesWidget extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: const Color(0xFFF1F5F9),
           width: 1,
@@ -65,8 +66,8 @@ class SecurityModulesWidget extends StatelessWidget {
                 crossAxisCount: 3,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                crossAxisSpacing: 6,
-                mainAxisSpacing: 6,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
                 childAspectRatio: aspectRatio,
                 children: [
                   _buildModuleItem(
@@ -91,6 +92,14 @@ class SecurityModulesWidget extends StatelessWidget {
                     color: const Color(0xFF10B981),
                     onTap: () {
                       Get.to(() => const StudentAttendanceScreen());
+                    },
+                  ),
+                  _buildModuleItem(
+                    title: 'Verify E-Pass',
+                    icon: Icons.event_rounded,
+                    color: const Color(0xFF8B5CF6),
+                    onTap: () {
+                      Get.to(() => const EventScreen());
                     },
                   ),
                 ],

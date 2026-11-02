@@ -128,7 +128,7 @@ class _StudentAttendanceScreenState extends State<StudentAttendanceScreen>
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

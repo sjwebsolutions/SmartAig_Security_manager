@@ -4,6 +4,7 @@ import 'package:security_manager/api_service/app_update_service.dart';
 import 'package:security_manager/models/dashboard_model.dart';
 import 'package:security_manager/utils.dart';
 import 'package:security_manager/view/screens/auth/login_screen.dart';
+import 'package:security_manager/view/screens/event_screen.dart';
 import 'package:security_manager/view/screens/gate_pass_screen.dart';
 import 'package:security_manager/view/screens/setting_screen.dart';
 import 'package:security_manager/view/screens/visitor_screen.dart';
@@ -186,7 +187,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               color: Colors.tealAccent.shade700,
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -196,7 +197,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       padding: const EdgeInsets.all(16.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: const Color(0xFFF1F5F9),
                           width: 1,
@@ -328,14 +329,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 10),
 
                     // Statistics Big Card Container
                     Container(
                       padding: const EdgeInsets.all(16.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: const Color(0xFFF1F5F9),
                           width: 1,
@@ -591,6 +592,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       onTap: () {
                         Navigator.pop(context);
                         Get.to(() => const VisitorScreen());
+                      },
+                    ),
+                    _buildDrawerItem(
+                      icon: Icons.event_rounded,
+                      title: 'Events',
+                      iconColor: const Color(0xFF8B5CF6),
+                      textColor: const Color(0xFF0F172A),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Get.to(() => const EventScreen());
                       },
                     ),
                     _buildDrawerItem(

@@ -2,7 +2,7 @@ name: security_manager
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 1.0.0+12
+version: 2.0.9
 
 environment:
   sdk: ^3.11.5

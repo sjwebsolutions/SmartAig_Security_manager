@@ -65,7 +65,7 @@ class VisitorScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: navigateToCheckIn,
-        backgroundColor:Colors.green,
+        backgroundColor: Colors.green,
         foregroundColor: Colors.white,
         icon: const Icon(Icons.person_add_alt_1_rounded),
         label: const Text(
@@ -120,7 +120,7 @@ class VisitorScreen extends StatelessWidget {
               onRefresh: () => controller.fetchVisitors(),
               color: const Color(0xFF0284C7),
               child: ListView.builder(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 80),
+                padding: const EdgeInsets.fromLTRB(12, 6, 12, 80),
                 itemCount: controller.visitors.length,
                 itemBuilder: (context, index) {
                   final visitor = controller.visitors[index];
@@ -136,11 +136,11 @@ class VisitorScreen extends StatelessWidget {
 
   Widget _buildVisitorCard(Visitor visitor) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(color: const Color(0xFFF1F5F9), width: 1),
         boxShadow: [
           BoxShadow(

@@ -46,21 +46,21 @@ class AppShimmerLoader extends StatelessWidget {
         child: const SafeArea(
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // 1. Profile, Name & School Shimmer Card
                 _ProfileCardShimmer(),
-                SizedBox(height: 12),
+                SizedBox(height: 10),
 
                 // 2. Statistics 2x2 Grid Shimmer (4 Cards)
                 _StatsGridShimmer(),
-                SizedBox(height: 12),
+                SizedBox(height: 10),
 
                 // 3. Attendance Clock Shimmer Card
                 _AttendanceCardShimmer(),
-                SizedBox(height: 12),
+                SizedBox(height: 10),
 
                 // 4. Security Modules Shimmer Grid
                 _ModulesGridShimmer(),
@@ -85,7 +85,7 @@ class _ProfileCardShimmer extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: const Color(0xFFE2E8F0),
           width: 1,
@@ -159,7 +159,7 @@ class _StatsGridShimmer extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: const Color(0xFFE2E8F0),
           width: 1,
@@ -239,7 +239,7 @@ class _AttendanceCardShimmer extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: const Color(0xFFE2E8F0),
           width: 1,
@@ -302,7 +302,7 @@ class _ModulesGridShimmer extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: const Color(0xFFE2E8F0),
           width: 1,
@@ -380,15 +380,15 @@ class ShimmerListLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       itemCount: itemCount,
       itemBuilder: (context, index) {
         return Container(
-          margin: const EdgeInsets.only(bottom: 12),
+          margin: const EdgeInsets.only(bottom: 10),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
             border: Border.all(color: const Color(0xFFE2E8F0), width: 1),
             boxShadow: [
               BoxShadow(

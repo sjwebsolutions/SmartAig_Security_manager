@@ -334,12 +334,12 @@ class _SettingScreenState extends State<SettingScreen> {
   }) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: const Color(0xFFF1F5F9),
             width: 1,
@@ -430,7 +430,7 @@ class _SettingScreenState extends State<SettingScreen> {
         child: SafeArea(
           child: SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -441,7 +441,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   subtitle: "Read our privacy policy",
                   onTap: () => _showPolicyDialog(context, controller, isPrivacy: true),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
                 _buildSettingItem(
                   icon: Icons.description_rounded,
                   iconColor: const Color(0xFFEA580C),
@@ -449,7 +449,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   subtitle: "Read our terms and conditions",
                   onTap: () => _showPolicyDialog(context, controller, isPrivacy: false),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
                 _buildSettingItem(
                   icon: Icons.headset_mic_rounded,
                   iconColor: const Color(0xFF0D9488),
@@ -457,7 +457,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   subtitle: "Get help and support for any issues",
                   onTap: () => _showSupportDialog(context, controller),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
                 _buildSettingItem(
                   icon: Icons.system_update_rounded,
                   iconColor: const Color(0xFF4F46E5),
@@ -467,7 +467,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       : "Check if a new version is available on store",
                   onTap: () => AppUpdateService.checkAndShowUpdateDialog(context, forceShow: true),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
                 _buildSettingItem(
                   icon: Icons.logout_rounded,
                   iconColor: const Color(0xFFDC2626),

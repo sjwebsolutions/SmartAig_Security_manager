@@ -198,7 +198,7 @@ class _VisitorCheckInScreenState extends State<VisitorCheckInScreen> with Widget
                     controller: controller.whatsappController,
                     label: 'WhatsApp Number * (10 Digits)',
                     hint: '9876543210',
-                    prefixWidget: const Icon(
+                    prefixWidget: const FaIcon(
                       FontAwesomeIcons.whatsapp,
                       color: Color(0xFF25D366),
                       size: 20,

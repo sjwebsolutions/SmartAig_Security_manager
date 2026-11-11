@@ -4,12 +4,14 @@ import 'package:security_manager/api_service/app_update_service.dart';
 import 'package:security_manager/models/dashboard_model.dart';
 import 'package:security_manager/utils.dart';
 import 'package:security_manager/view/screens/auth/login_screen.dart';
+import 'package:security_manager/view/screens/event_entry_screen.dart';
 import 'package:security_manager/view/screens/event_screen.dart';
 import 'package:security_manager/view/screens/gate_pass_screen.dart';
 import 'package:security_manager/view/screens/setting_screen.dart';
 import 'package:security_manager/view/screens/visitor_screen.dart';
 import 'package:security_manager/view/widgets/app_shimmer_loader.dart';
 import 'package:security_manager/view/widgets/attendance_widget.dart';
+import 'package:security_manager/view/widgets/live_telecast_widget.dart';
 import 'package:security_manager/view/widgets/security_modules_widget.dart';
 import 'package:security_manager/view_models/auth_controller.dart';
 import 'package:security_manager/view_models/dashboard_controller.dart';
@@ -424,6 +426,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     const SizedBox(height: 10),
 
+                    // Live Telecast Section
+                    Obx(() {
+                      if (controller.liveEvents.isEmpty) {
+                        return const SizedBox.shrink();
+                      }
+                      return Column(
+                        children: controller.liveEvents
+                            .map((event) => LiveTelecastWidget(event: event))
+                            .toList(),
+                      );
+                    }),
+
                     // Attendance Clock Card (Only Clock In & Clock Out)
                     const AttendanceWidget(),
                     const SizedBox(height: 10),
@@ -602,6 +616,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       onTap: () {
                         Navigator.pop(context);
                         Get.to(() => const EventScreen());
+                      },
+                    ),
+                    _buildDrawerItem(
+                      icon: Icons.event_note_rounded,
+                      title: 'Event Entry',
+                      iconColor: const Color(0xFFEC4899),
+                      textColor: const Color(0xFF0F172A),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Get.to(() => const EventEntryScreen());
                       },
                     ),
                     _buildDrawerItem(

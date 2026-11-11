@@ -196,7 +196,7 @@ class _SettingScreenState extends State<SettingScreen> {
     }
   }
 
-  Widget _buildSupportDetail(IconData icon, String label, String value, {required VoidCallback onTap}) {
+  Widget _buildSupportDetail(dynamic icon, String label, String value, {required VoidCallback onTap}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Card(
@@ -219,7 +219,9 @@ class _SettingScreenState extends State<SettingScreen> {
                     color: Color(0xFFEEF2FF),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(icon, color: const Color(0xFF4F46E5), size: 20),
+                  child: icon is IconData
+                      ? Icon(icon, color: const Color(0xFF4F46E5), size: 20)
+                      : FaIcon(icon, color: const Color(0xFF4F46E5), size: 20),
                 ),
                 const SizedBox(width: 16),
                 Expanded(

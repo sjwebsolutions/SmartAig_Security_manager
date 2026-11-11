@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:security_manager/api_service/dashboard_service.dart';
+import 'package:security_manager/api_service/event_service.dart';
 import 'package:security_manager/api_service/support_service.dart';
 import 'package:security_manager/api_service/policy_service.dart';
+import 'package:security_manager/models/active_event_model.dart';
 import 'package:security_manager/models/attendance_model.dart';
 import 'package:security_manager/models/dashboard_model.dart';
 import 'package:security_manager/models/support_model.dart';
@@ -26,6 +28,7 @@ class DashboardController extends GetxController {
   final Rxn<DashboardData> dashboardData = Rxn<DashboardData>();
   final Rxn<SupportData> supportData = Rxn<SupportData>();
   final Rxn<PolicyData> policyData = Rxn<PolicyData>();
+  final RxList<ActiveEventModel> liveEvents = <ActiveEventModel>[].obs;
 
   // Attendance states
   final RxBool isClockedIn = false.obs;
@@ -505,6 +508,17 @@ class DashboardController extends GetxController {
           );
         }
       }
+
+      // Fetch Active Events & Live Telecasts (Strictly check is_live == true)
+      try {
+        final eventsResponse = await EventService().getActiveEvents(token);
+        if (eventsResponse.success) {
+          final liveList = eventsResponse.data
+              .where((e) => e.liveTelecast != null && e.liveTelecast!.isLive == true)
+              .toList();
+          liveEvents.assignAll(liveList);
+        }
+      } catch (_) {}
     } catch (e) {
       if (dashboardData.value == null) {
         hasError.value = true;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:security_manager/view/screens/event_entry_screen.dart';
 import 'package:security_manager/view/screens/event_screen.dart';
 import 'package:security_manager/view/screens/gate_pass_screen.dart';
 import 'package:security_manager/view/screens/student_attendance_screen.dart';
@@ -100,6 +101,14 @@ class SecurityModulesWidget extends StatelessWidget {
                     color: const Color(0xFF8B5CF6),
                     onTap: () {
                       Get.to(() => const EventScreen());
+                    },
+                  ),
+                  _buildModuleItem(
+                    title: 'Event Entry',
+                    icon: Icons.event_note_rounded,
+                    color: const Color(0xFFEC4899),
+                    onTap: () {
+                      Get.to(() => const EventEntryScreen());
                     },
                   ),
                 ],
